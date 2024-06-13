@@ -38,7 +38,7 @@ user to the ``request context``
     user_loader = lambda username, password: { 'username': username }
     auth_backend = BasicAuthBackend(user_loader)
     auth_middleware = FalconAuthMiddleware(auth_backend,
-                        exempt_routes=['/exempt'], exempt_methods=['HEAD'])
+                        exempt_routes=['/exempt'], exempt_methods=['OPTIONS','HEAD'])
     api = falcon.API(middleware=[auth_middleware])
 
     class ApiResource:
